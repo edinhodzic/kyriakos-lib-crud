@@ -9,4 +9,4 @@ case class Paginated[T](@BeanProperty results: Array[T], @BeanProperty resultsTo
 
 }
 
-// TODO think about movind to a different library?
+// TODO think about moving to a different library?

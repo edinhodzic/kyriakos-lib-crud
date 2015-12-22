@@ -8,4 +8,4 @@ trait Queryable[T] {
 
 }
 
-// TODO think about movind to a different library?
+// TODO think about moving to a different library?
