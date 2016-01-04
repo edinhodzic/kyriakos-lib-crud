@@ -1,10 +1,8 @@
 # About
 
-A repository abstraction library based on three traits:
+A repository abstraction library based on the following abstractions:
 
-- `AbstractPartialCrudRepository` defines an interface for all CRUD operations except the update operation as this can either be a whole update or a partial update
-- `WholeUpdates` defines an interface for whole update
-- `PartialUpdates` defines an interface for partial updates
+![Repository abstractions](https://cloud.githubusercontent.com/assets/4981314/12087457/f261ceaa-b2ca-11e5-8df4-fade5f8ee18e.jpg)
 
 # Usage
 
