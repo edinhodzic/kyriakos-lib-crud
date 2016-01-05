@@ -17,4 +17,6 @@ libraryDependencies ++= Seq(
   "io.kamon" % "kamon-core_2.11" % "0.5.2"
 )
 
+publishTo := Some("OTRL" at "https://mvn.otrl.io")
+
 scalacOptions += "-feature"
