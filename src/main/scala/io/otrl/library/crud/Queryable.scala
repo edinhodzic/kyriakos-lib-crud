@@ -7,5 +7,3 @@ trait Queryable[T] {
   def query(queryString: String): Try[Paginated[T]]
 
 }
-
-// TODO think about moving to a different library?

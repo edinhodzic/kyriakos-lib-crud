@@ -2,13 +2,13 @@ import sbt._
 
 organization := "io.otrl.library"
 
-name := "otrl-lib-repository"
+name := "otrl-lib-crud"
 
-version := "0.5.0-SNAPSHOT"
+version := "0.1.0-SNAPSHOT"
 
 scalaVersion := "2.11.7"
 
-lazy val otrlLibraryRepository = project.in(file("."))
+lazy val otrlLibCrud = project.in(file("."))
 
 libraryDependencies ++= Seq(
   "org.scala-lang" % "scala-library" % "2.11.7",

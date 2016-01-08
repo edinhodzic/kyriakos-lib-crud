@@ -8,5 +8,3 @@ case class Paginated[T](@BeanProperty results: Array[T], @BeanProperty resultsTo
     (if (resultsTotal % results.length > 1) 1 else 0)
 
 }
-
-// TODO think about moving to a different library?

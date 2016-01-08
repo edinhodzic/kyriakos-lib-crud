@@ -15,7 +15,7 @@ case class Person(firstname: String, lastname: String) extends Identifiable
 If we want a repository capable of whole updates:
 
 ```scala
-class PersonRepository extends AbstractPartialCrudRepository[Person] with WholeUpdates[Person] {
+class PersonRepository extends PartialCrudOperations[Person] with WholeUpdates[Person] {
 
   override def create(resource: Person): Try[Person] = ???
 
@@ -30,7 +30,7 @@ class PersonRepository extends AbstractPartialCrudRepository[Person] with WholeU
 Alternatively, if we want a repository capable of partial updates:
 
 ```scala
-class PersonRepository extends AbstractPartialCrudRepository[Person] with PartialUpdates[Person] {
+class PersonRepository extends PartialCrudOperations[Person] with PartialUpdates[Person] {
 
   override def create(resource: Person): Try[Person] = ???
 
@@ -42,3 +42,9 @@ class PersonRepository extends AbstractPartialCrudRepository[Person] with Partia
 
 }
 ```
+
+# What's next?
+
+- [ ] rename this project to `otrl-lib-crud`
+- [ ] consider using HTTP PATCH in addition to PUT as per [RFC 5789](http://tools.ietf.org/html/rfc5789)
+

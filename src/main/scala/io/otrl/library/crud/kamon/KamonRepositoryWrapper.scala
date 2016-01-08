@@ -1,7 +1,7 @@
 package io.otrl.library.crud.kamon
 
 import com.typesafe.scalalogging.LazyLogging
-import io.otrl.library.crud.{PartialUpdates, Queryable}
+import io.otrl.library.crud.{PartialCrudOperations, Paginated, PartialUpdates, Queryable}
 import io.otrl.library.domain.Identifiable
 import kamon.Kamon
 import kamon.metric.instrument.Counter
@@ -16,8 +16,8 @@ import scala.util.Try
   * @param repository the repository to wrap
   */
 class KamonRepositoryWrapper[T <: Identifiable]
-(repository: AbstractPartialCrudRepository[T] with PartialUpdates[T] with Queryable[T])(implicit manifest: Manifest[T])
-  extends AbstractPartialCrudRepository[T] with PartialUpdates[T] with Queryable[T] with LazyLogging {
+(repository: PartialCrudOperations[T] with PartialUpdates[T] with Queryable[T])(implicit manifest: Manifest[T])
+  extends PartialCrudOperations[T] with PartialUpdates[T] with Queryable[T] with LazyLogging {
 
   private lazy val domain: String = manifest.runtimeClass.getSimpleName.toLowerCase
   private lazy val createCounter: Counter = Kamon.metrics.counter(s"$domain-create-counter")

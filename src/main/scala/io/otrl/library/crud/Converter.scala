@@ -1,5 +1,6 @@
 package io.otrl.library.crud
 
+// TODO consider using json4s in implementations
 trait Converter[A, B] {
 
   def serialise(subject: A): B
@@ -8,4 +9,3 @@ trait Converter[A, B] {
 
 }
 
-// TODO think about moving to a different library?
