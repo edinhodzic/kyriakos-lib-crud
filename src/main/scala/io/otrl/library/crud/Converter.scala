@@ -1,4 +1,4 @@
-package io.otrl.library.repository
+package io.otrl.library.crud
 
 trait Converter[A, B] {
 

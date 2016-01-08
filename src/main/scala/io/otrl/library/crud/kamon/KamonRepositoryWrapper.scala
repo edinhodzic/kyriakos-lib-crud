@@ -1,8 +1,8 @@
-package io.otrl.library.repository.kamon
+package io.otrl.library.crud.kamon
 
 import com.typesafe.scalalogging.LazyLogging
+import io.otrl.library.crud.{PartialUpdates, Queryable}
 import io.otrl.library.domain.Identifiable
-import io.otrl.library.repository.{AbstractPartialCrudRepository, Paginated, PartialUpdates, Queryable}
 import kamon.Kamon
 import kamon.metric.instrument.Counter
 import kamon.trace.SegmentCategory.Database

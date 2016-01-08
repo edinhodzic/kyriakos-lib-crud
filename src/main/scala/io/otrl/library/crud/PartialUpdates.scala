@@ -1,4 +1,4 @@
-package io.otrl.library.repository
+package io.otrl.library.crud
 
 import io.otrl.library.domain.Identifiable
 
