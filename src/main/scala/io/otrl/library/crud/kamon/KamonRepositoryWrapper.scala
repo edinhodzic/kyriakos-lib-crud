@@ -1,7 +1,7 @@
 package io.otrl.library.crud.kamon
 
 import com.typesafe.scalalogging.LazyLogging
-import io.otrl.library.crud.{PartialCrudOperations, Paginated, PartialUpdates, Queryable}
+import io.otrl.library.crud.{Paginated, CrudOperations, Queryable}
 import io.otrl.library.domain.Identifiable
 import kamon.Kamon
 import kamon.metric.instrument.Counter
@@ -16,13 +16,14 @@ import scala.util.Try
   * @param repository the repository to wrap
   */
 class KamonRepositoryWrapper[T <: Identifiable]
-(repository: PartialCrudOperations[T] with PartialUpdates[T] with Queryable[T])(implicit manifest: Manifest[T])
-  extends PartialCrudOperations[T] with PartialUpdates[T] with Queryable[T] with LazyLogging {
+(repository: CrudOperations[T] with Queryable[T])(implicit manifest: Manifest[T])
+  extends CrudOperations[T] with Queryable[T] with LazyLogging {
 
   private lazy val domain: String = manifest.runtimeClass.getSimpleName.toLowerCase
   private lazy val createCounter: Counter = Kamon.metrics.counter(s"$domain-create-counter")
   private lazy val readCounter: Counter = Kamon.metrics.counter(s"$domain-read-counter")
-  private lazy val updateCounter: Counter = Kamon.metrics.counter(s"$domain-update-counter")
+  private lazy val wholeUpdateCounter: Counter = Kamon.metrics.counter(s"$domain-whole-update-counter")
+  private lazy val patialUpdateCounter: Counter = Kamon.metrics.counter(s"$domain-partial-update-counter")
   private lazy val deleteCounter: Counter = Kamon.metrics.counter(s"$domain-delete-counter")
   private lazy val queryCounter: Counter = Kamon.metrics.counter(s"$domain-query-counter")
 
@@ -36,9 +37,14 @@ class KamonRepositoryWrapper[T <: Identifiable]
       repository read resourceId
     }
 
+  override def update(resource: T): Try[Option[T]] =
+    kamonSegment(s"whole-update-$domain-segment", wholeUpdateCounter) {
+      repository update resource
+    }
+
   override def update(resourceId: String, updatePayload: String): Try[Option[AnyRef]] =
-    kamonSegment(s"update-$domain-segment", updateCounter) {
-      repository.update(resourceId, updatePayload)
+    kamonSegment(s"partial-update-$domain-segment", patialUpdateCounter) {
+      repository update(resourceId, updatePayload)
     }
 
   override def delete(resourceId: String): Try[Option[Unit]] =
