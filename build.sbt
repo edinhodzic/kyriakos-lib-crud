@@ -13,6 +13,7 @@ lazy val otrlLibCrud = project.in(file("."))
 libraryDependencies ++= Seq(
   "org.scala-lang" % "scala-library" % "2.11.7",
   "io.otrl.library" % "otrl-lib-domain_2.11" % "0.5.0-SNAPSHOT",
+  "io.otrl.library" % "otrl-lib-utils_2.11" % "0.1.0-SNAPSHOT",
   "com.typesafe.scala-logging" % "scala-logging_2.11" % "3.1.0",
   "io.kamon" % "kamon-core_2.11" % "0.5.2"
 )
