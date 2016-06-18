@@ -34,7 +34,7 @@ There is also an asynchronous version of the above, it's merely a matter of exte
 
 # What's next?
 
-- [x] rename this project to `otrl-lib-crud`
+- [x] rename this project to `kyriakos-lib-crud`
 - [x] consider using HTTP PATCH in addition to PUT as per [RFC 5789](http://tools.ietf.org/html/rfc5789)
 - [ ] http patch is implemented, implement put 
 

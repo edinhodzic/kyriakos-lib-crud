@@ -1,4 +1,4 @@
-package io.otrl.library.crud
+package io.kyriakos.library.crud
 
 import scala.beans.BeanProperty
 

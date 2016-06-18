@@ -1,4 +1,4 @@
-package io.otrl.library.crud
+package io.kyriakos.library.crud
 
 // TODO consider using json4s in implementations
 trait Converter[A, B] {

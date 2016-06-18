@@ -1,6 +1,6 @@
-package io.otrl.library.crud
+package io.kyriakos.library.crud
 
-import io.otrl.library.domain.Identifiable
+import io.kyriakos.library.domain.Identifiable
 
 import scala.util.Try
 

@@ -1,9 +1,9 @@
-package io.otrl.library.crud.kamon
+package io.kyriakos.library.crud.kamon
 
 import com.typesafe.scalalogging.LazyLogging
-import io.otrl.library.crud.{CrudOperations, Paginated, Queryable}
-import io.otrl.library.domain.Identifiable
-import io.otrl.library.utils.ManifestUtils
+import io.kyriakos.library.crud.{CrudOperations, Paginated, Queryable}
+import io.kyriakos.library.domain.Identifiable
+import io.kyriakos.library.utils.ManifestUtils
 import kamon.Kamon
 import kamon.metric.instrument.Counter
 import kamon.trace.SegmentCategory.Database
