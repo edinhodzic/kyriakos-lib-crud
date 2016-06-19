@@ -2,6 +2,8 @@
 
 A repository abstraction library based on the following abstractions:
 
+[![Build Status](https://travis-ci.org/edinhodzic/kyriakos-lib-crud.svg?branch=master)](https://travis-ci.org/edinhodzic/kyriakos-lib-crud)
+
 ![Repository abstractions](https://cloud.githubusercontent.com/assets/4981314/12087457/f261ceaa-b2ca-11e5-8df4-fade5f8ee18e.jpg)
 
 # Usage
