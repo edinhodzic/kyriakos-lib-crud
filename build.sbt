@@ -1,14 +1,25 @@
 import sbt._
+import bintray.Keys._
 
 organization := "io.kyriakos.library"
 
 name := "kyriakos-lib-crud"
 
-version := "0.1.0-SNAPSHOT"
+version := "1.0.0"
 
 scalaVersion := "2.11.7"
 
-lazy val kyriakosLibCrud = project.in(file("."))
+lazy val kyriakosLibCrud = project.in(file(".")).
+  settings(bintrayPublishSettings: _*).
+  settings(
+    sbtPlugin := true,
+    name := "kyriakos-lib-crud",
+    licenses += ("MIT", url("https://opensource.org/licenses/MIT")),
+    publishMavenStyle := false,
+    repository in bintray := "kyriakos",
+    bintrayOrganization in bintray := None
+  )
+
 
 libraryDependencies ++= Seq(
   "org.scala-lang" % "scala-library" % "2.11.7",
