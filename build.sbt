@@ -12,7 +12,7 @@ scalaVersion := "2.11.7"
 lazy val kyriakosLibCrud = project.in(file(".")).
   settings(bintrayPublishSettings: _*).
   settings(
-    sbtPlugin := true,
+    sbtPlugin := false,
     name := "kyriakos-lib-crud",
     licenses += ("MIT", url("https://opensource.org/licenses/MIT")),
     publishMavenStyle := false,
@@ -20,6 +20,7 @@ lazy val kyriakosLibCrud = project.in(file(".")).
     bintrayOrganization in bintray := None
   )
 
+resolvers += Resolver.url("edinhodzic", url("http://dl.bintray.com/edinhodzic/kyriakos"))(Resolver.ivyStylePatterns)
 
 libraryDependencies ++= Seq(
   "org.scala-lang" % "scala-library" % "2.11.7",
